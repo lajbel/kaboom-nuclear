@@ -9,5 +9,5 @@ export function loadBeanObj() {
 };
 
 export function addBeanObj() {
-    add(beanComps);
+    return add(beanComps);
 };
