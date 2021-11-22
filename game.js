@@ -2366,7 +2366,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   }
   __name(loadBeanObj, "loadBeanObj");
   function addBeanObj() {
-    add(beanComps);
+    return add(beanComps);
   }
   __name(addBeanObj, "addBeanObj");
 

@@ -1,4 +1,7 @@
+## Replit files
 .config/
 .cache/
 .upm/
+
+# Other
 node_modules/
