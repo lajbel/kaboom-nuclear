@@ -2,9 +2,8 @@
     "name": "kaboom-explosion",
     "version": "1.0.0",
     "scripts": {
-        "build": "node dev/build.js",
-        "serv": "node dev/serv.js",
-        "all": "node dev/build.js & node dev/serv.js"
+        "build": "node scripts/build.js",
+        "server": "node scripts/server.js"
     },
     "dependencies": {
         "esbuild": "^0.12.19",

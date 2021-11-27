@@ -1,5 +1,5 @@
 language = "kaboom"
-run = "npm run all" # Use "npm run all" for compile and serv
+run = "npm run serv"
 entrypoint = "code/main.js"
 
 [packager]

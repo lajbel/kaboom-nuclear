@@ -17,6 +17,4 @@ function buildGame() {
     fs.writeFileSync("index.html", template.replace("{{kaboom}}", `<script type="module" src="game.js"></script>`));
 };
 
-buildGame();
-
 module.exports = buildGame;

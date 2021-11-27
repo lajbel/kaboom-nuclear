@@ -6,7 +6,7 @@ const path = require("path");
 const app = express();
 
 app.get("/", (req, res) => {
-    buildGame()
+    buildGame();
 	res.sendFile(path.join(__dirname, "..", "index.html"));
 });
 
