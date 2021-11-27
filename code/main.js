@@ -5,8 +5,6 @@ import kaboom from "kaboom";
 import { loadAssets } from "./loader.js";
 import { loadMainScene } from "./scenes/main.js";
 
-import { loadBeanObj } from "./objects/bean.js";
-
 import { backgroundPlugin } from "./plugins/background.js"
 
 // Ka-boom
@@ -24,10 +22,6 @@ loadAssets();
 // Load Scenes
 
 loadMainScene();
-
-// Load objects
-
-loadBeanObj();
 
 // Start scene
 

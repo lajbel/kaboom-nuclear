@@ -2747,30 +2747,65 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   // code/loader.js
   function loadAssets() {
     loadSprite("bean", "sprites/bean.png");
+    loadFont("unscii", "fonts/unscii_8x8.png", 8, 8);
   }
   __name(loadAssets, "loadAssets");
 
   // code/objects/bean.js
-  var beanComps;
-  function loadBeanObj() {
-    beanComps = [
+  function addBeanObj() {
+    const bean = add([
       sprite("bean"),
       origin("center"),
-      pos(center())
-    ];
-  }
-  __name(loadBeanObj, "loadBeanObj");
-  function addBeanObj() {
-    return add(beanComps);
+      pos(center()),
+      {
+        speed: 250
+      }
+    ]);
+    bean.onUpdate(() => {
+      if (keyIsDown("up") || keyIsDown("w")) {
+        bean.move(0, -bean.speed);
+      }
+      if (keyIsDown("down") || keyIsDown("s")) {
+        bean.move(0, bean.speed);
+      }
+      if (keyIsDown("left") || keyIsDown("a")) {
+        bean.move(-bean.speed, 0);
+      }
+      if (keyIsDown("right") || keyIsDown("d")) {
+        bean.move(bean.speed, 0);
+      }
+    });
+    return bean;
   }
   __name(addBeanObj, "addBeanObj");
 
+  // code/objects/welcomeText.js
+  function addWelcome() {
+    const welcome = add([
+      text("Welcome to Kaboom"),
+      pos(width() / 2, 100),
+      color(255, 65, 66),
+      origin("center")
+    ]);
+    const pixel = add([
+      text("WASD or Arrows - Move", { font: "unscii", size: 50 }),
+      pos(width() / 2, height() - 100),
+      color(255, 65, 66),
+      origin("center")
+    ]);
+    return welcome, pixel;
+  }
+  __name(addWelcome, "addWelcome");
+
   // code/scenes/main.js
+  function mainScene() {
+    backgroundColor(rgb(255, 255, 255));
+    addBeanObj();
+    addWelcome();
+  }
+  __name(mainScene, "mainScene");
   function loadMainScene() {
-    return scene("main", () => {
-      debug.log("hi");
-      addBeanObj();
-    });
+    return scene("main", mainScene);
   }
   __name(loadMainScene, "loadMainScene");
 
@@ -2796,6 +2831,5 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   });
   loadAssets();
   loadMainScene();
-  loadBeanObj();
   go("main");
 })();

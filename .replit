@@ -1,5 +1,5 @@
 language = "kaboom"
-run = "npm run serv"
+run = "npm run server"
 entrypoint = "code/main.js"
 
 [packager]
