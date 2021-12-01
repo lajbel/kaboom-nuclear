@@ -2744,34 +2744,34 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     }), Xe;
   }, "default");
 
-  // code/loader.js
+  // code/loader.ts
   function loadAssets() {
-    loadSprite("bean", "sprites/bean.png");
-    loadFont("unscii", "fonts/unscii_8x8.png", 8, 8);
+    main_default.loadSprite("bean", "sprites/bean.png");
+    main_default.loadFont("unscii", "fonts/unscii_8x8.png", 8, 8);
   }
   __name(loadAssets, "loadAssets");
 
-  // code/objects/bean.js
+  // code/objects/bean.ts
   function addBeanObj() {
-    const bean = add([
-      sprite("bean"),
-      origin("center"),
-      pos(center()),
+    const bean = main_default.add([
+      main_default.sprite("bean"),
+      main_default.origin("center"),
+      main_default.pos(main_default.center()),
       {
         speed: 250
       }
     ]);
     bean.onUpdate(() => {
-      if (keyIsDown("up") || keyIsDown("w")) {
+      if (main_default.isKeyDown("up") || main_default.isKeyDown("w")) {
         bean.move(0, -bean.speed);
       }
-      if (keyIsDown("down") || keyIsDown("s")) {
+      if (main_default.isKeyDown("down") || main_default.isKeyDown("s")) {
         bean.move(0, bean.speed);
       }
-      if (keyIsDown("left") || keyIsDown("a")) {
+      if (main_default.isKeyDown("left") || main_default.isKeyDown("a")) {
         bean.move(-bean.speed, 0);
       }
-      if (keyIsDown("right") || keyIsDown("d")) {
+      if (main_default.isKeyDown("right") || main_default.isKeyDown("d")) {
         bean.move(bean.speed, 0);
       }
     });
@@ -2779,37 +2779,37 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   }
   __name(addBeanObj, "addBeanObj");
 
-  // code/objects/welcomeText.js
+  // code/objects/welcomeText.ts
   function addWelcome() {
-    const welcome = add([
-      text("Welcome to Kaboom"),
-      pos(width() / 2, 100),
-      color(255, 65, 66),
-      origin("center")
+    const welcome = main_default.add([
+      main_default.text("Welcome to Kaboom"),
+      main_default.pos(width() / 2, 100),
+      main_default.color(255, 65, 66),
+      main_default.origin("center")
     ]);
     const pixel = add([
-      text("WASD or Arrows - Move", { font: "unscii", size: 50 }),
-      pos(width() / 2, height() - 100),
-      color(255, 65, 66),
-      origin("center")
+      main_default.text("WASD or Arrows - Move", { font: "unscii", size: 50 }),
+      main_default.pos(width() / 2, height() - 100),
+      main_default.color(255, 65, 66),
+      main_default.origin("center")
     ]);
-    return welcome, pixel;
+    return [welcome, pixel];
   }
   __name(addWelcome, "addWelcome");
 
-  // code/scenes/main.js
+  // code/scenes/main.ts
   function mainScene() {
-    backgroundColor(rgb(255, 255, 255));
+    main_default.backgroundColor(main_default.rgb(255, 255, 255));
     addBeanObj();
     addWelcome();
   }
   __name(mainScene, "mainScene");
   function loadMainScene() {
-    return scene("main", mainScene);
+    return main_default.scene("main", mainScene);
   }
   __name(loadMainScene, "loadMainScene");
 
-  // code/plugins/background.js
+  // code/plugins/background.ts
   function backgroundPlugin(k2) {
     return {
       backgroundColor(c) {
@@ -2823,13 +2823,14 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   }
   __name(backgroundPlugin, "backgroundPlugin");
 
-  // code/main.js
+  // code/main.ts
   var k = Es({
     plugins: [
       backgroundPlugin
     ]
   });
+  var main_default = k;
   loadAssets();
   loadMainScene();
-  go("main");
+  k.go("main");
 })();

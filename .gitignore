@@ -3,5 +3,5 @@
 .cache/
 .upm/
 
-# Other
+# Node
 node_modules/

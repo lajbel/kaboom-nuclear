@@ -1,0 +1,6 @@
+{
+    "baseUrl": ".code/",
+    "paths": {
+        "kaboom": "./node_modules/kaboom/dist/kaboom.js"
+    }
+}

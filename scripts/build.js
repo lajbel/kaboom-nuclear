@@ -10,7 +10,7 @@ function buildGame() {
         target: "es6",
         keepNames: true,
         logLevel: "silent",
-        entryPoints: ["code/main.js"],
+        entryPoints: ["code/main.ts"],
         outfile: "game.js",
     });
 

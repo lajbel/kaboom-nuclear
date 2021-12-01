@@ -2,18 +2,20 @@
 
 import kaboom from "kaboom";
 
-import { loadAssets } from "./loader.js";
-import { loadMainScene } from "./scenes/main.js";
+import { loadAssets } from "./loader";
+import { loadMainScene } from "./scenes/main";
 
-import { backgroundPlugin } from "./plugins/background.js"
+import { backgroundPlugin } from "./plugins/background"
 
 // Ka-boom
 
-export const k = kaboom({
+const k = kaboom({
     plugins: [ 
         backgroundPlugin
     ]
 });
+
+export default k;
 
 // Load Assets
 
@@ -25,4 +27,4 @@ loadMainScene();
 
 // Start scene
 
-go("main");
+k.go("main");
