@@ -5,3 +5,8 @@
 
 # Node
 node_modules/
+
+# Compiled data
+
+game.js
+index.html
