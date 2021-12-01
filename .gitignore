@@ -1,7 +1,9 @@
-## Replit files
+## Replit files - .replit and replit.nix only in replit template
 .config/
 .cache/
 .upm/
+.replit
+replit.nix
 
 # Node
 node_modules/
